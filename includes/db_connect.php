@@ -1,4 +1,5 @@
 <?php
+
 $host = 'localhost'; // or your database host
 $dbname = 'barham_class';
 $username = 'root'; // or your database username

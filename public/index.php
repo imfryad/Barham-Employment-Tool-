@@ -1,42 +1,40 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="kur" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="3;url=Job_opportunities.php">
-    <title>Barham Class</title>
+    <title>بەرهەم کڵاس</title>
     <style>
+        @font-face {
+            font-family: 'NewRudawRegular';
+            src: url('../assets/Fonts/new_rudaw_regular.ttf') format('truetype');
+        }
         body {
+            font-family: 'NewRudawRegular', sans-serif;
+            background-color: #f7f7f7;
+            direction: rtl;
+            margin: 0;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
             text-align: center;
         }
         h1 {
-            font-size: 3em;
-            color: #333;
+            margin: 0;
         }
-        .loader {
-            border: 8px solid #f3f3f3; /* Light grey */
-            border-top: 8px solid #3498db; /* Blue */
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 4s linear infinite;
-            margin-top: 20px;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        img {
+            margin-top: 20px; /* Adjust as needed */
         }
     </style>
 </head>
 <body>
-    <h1>سڵاو✋، تکایە کەمێك چاوەڕێ بکە</h1>
-    <div class="loader"></div>
+    <div>
+        <h1>تکایە چاوەڕوانبە...</h1>
+    </div>
+    <div>
+        <img src="../assets/images/loading.gif" alt="" style="width: 80px; height: 80px;">
+    </div>
 </body>
 </html>

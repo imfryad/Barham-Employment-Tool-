@@ -1,5 +1,5 @@
 <?php
-include 'db_connect.php'; 
+require 'db_connect.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = htmlspecialchars(trim($_POST['full-name']));
@@ -28,8 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // Validate file size
-        if ($file['size'] > 5 * 1024 * 1024) { // 5 MB
-            echo 'قەبارەی فایلەکە نابێت لە 5 MB زیاتر بێت';
+        if ($file['size'] > 10 * 1024 * 1024) { // 5 MB
+            echo 'قەبارەی فایلەکە نابێت لە 10 MB زیاتر بێت';
             exit;
         }
 

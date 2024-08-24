@@ -1,15 +1,25 @@
 <?php
-session_start();
-include '../includes/db_connect.php';
+session_start(); // Start the session
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+require '../../includes/db_connect.php'; // Connect to the database
+
+$error = ""; // Initialize error variable
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {  // Only process the form if it has been submitted
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
+
+    // Debugging: see the submitted values
+    var_dump($username, $password);
 
     // Prepare and execute the SQL query to find the user by username
     $stmt = $pdo->prepare("SELECT * FROM admin_users WHERE username = ?");
     $stmt->execute([$username]);
+
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    // Debugging: see the fetched user data
+    var_dump($user);
 
     if ($user) {
         // Verify the password
@@ -20,11 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             exit;
         } else {
             // Incorrect password
-            $error = "Invalid username or password.";
+            $error = "تێپەڕە وشە هەڵەیە";
         }
     } else {
         // User not found
-        $error = "Invalid username or password.";
+        $error = "بەکارهێنەر یان تێپەڕە وشە هەڵەیە";
     }
 }
 ?>
@@ -42,11 +52,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <h2 class="text-center">چونەژوورەوە</h2>
-                <?php if (isset($error)): ?>
+                
+                <!-- Only display the error message if there is an error -->
+                <?php if (!empty($error)): ?>
                     <div class="alert alert-danger" role="alert">
                         <?= htmlspecialchars($error) ?>
                     </div>
                 <?php endif; ?>
+                
                 <form method="post">
                     <div class="mb-3">
                         <label for="username" class="form-label">ناوی بەکارهێنەر</label>

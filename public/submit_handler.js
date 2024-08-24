@@ -24,16 +24,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const file = fileInput.files[0];
         if (file) {
             const allowedTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png'];
-            const maxSize = 5 * 1024 * 1024; // 5 MB
+            const maxSize = 10 * 1024 * 1024; // 10 MB
 
             if (!allowedTypes.includes(file.type)) {
-                alert('Please upload a valid file type: PDF, DOCX, JPG, JPEG, PNG.');
+                alert('فایلی داواکراو: PDF, DOCX, JPG, JPEG, PNG.');
                 fileInput.value = ''; // Clear the input
                 return;
             }
 
             if (file.size > maxSize) {
-                alert('File size exceeds 5 MB. Please upload a smaller file.');
+                alert('فایلەکە نابێت قەبارەی لە 5 MB. زیاتر بێت');
                 fileInput.value = ''; // Clear the input
                 return;
             }

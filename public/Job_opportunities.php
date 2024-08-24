@@ -1,6 +1,6 @@
 <?php
-// Include the database connection
-include '../includes/db_connect.php';
+// require the database connection
+require '../includes/db_connect.php';
 
 // Fetch data from the database
 $stmt = $pdo->query("SELECT * FROM job_info WHERE id = 1"); // Assuming id=1 holds the default values
@@ -23,7 +23,7 @@ $uploadStatus = isset($_GET['upload_status']) ? $_GET['upload_status'] : '';
 <body>
     <div class="container mt-5">
         <h1 class="text-center">فۆڕمی دامەزراندن</h1>
-        <p class="text-center">بەخێربێیت بۆ خێزانی بەرهەم کڵاس</p>
+        <h2 class="text-center">بەخێربێیت بۆ خێزانی بەرهەم کڵاس</h2>
     </div>
     <div class="container mt-4">
         <!-- Display status messages -->
@@ -38,30 +38,34 @@ $uploadStatus = isset($_GET['upload_status']) ? $_GET['upload_status'] : '';
         <?php endif; ?>
 
         <form action="../includes/upload.php" method="post" enctype="multipart/form-data">
-            <div class="container mt-4">
-                <h2>زانیاری کار</h2>
-                
-                <div class="mb-3">
-                    <label for="open-position" class="form-label">بەشی کراوە:</label>
-                    <input type="text" class="form-control" id="open-position" value="<?php echo htmlspecialchars($data['open_position']); ?>" readonly>
-                </div>
+    <div class="container mt-4">
+        <h2>زانیاری کار</h2>
 
-                <div class="mb-3">
-                    <label for="job-description" class="form-label">کورتەیەک لەسەر کارەکە:</label>
-                    <input type="text" class="form-control" id="job-description" value="<?php echo htmlspecialchars($data['job_description']); ?>" readonly>
-                </div>
-
-                <div class="mb-3">
-                    <label for="gender" class="form-label">ڕەگەزی داواکراو:</label>
-                    <input type="text" class="form-control" id="gender" value="<?php echo htmlspecialchars($data['gender']); ?>" readonly>
-                </div>
-
-                <div class="mb-3">
-                    <label for="location" class="form-label">شوێنی کارکردن:</label>
-                    <input type="text" class="form-control" id="location" value="<?php echo htmlspecialchars($data['location']); ?>" readonly>
-                </div>
-            </div>
+        <!-- Admin-Managed Section -->
+        <div class="p-3 mb-4" style="border: 1px solid #ccc; background-color: #f9f9f9; border-radius: 5px;">
+            <p class="text-muted">زانیاریەکانی کار بۆ بەرچاوڕوونی دانراون و ناتوانی دەستکاریان بکەیت..</p>
             
+            <div class="mb-3">
+                <label for="open-position" class="form-label">بەشی کراوە:</label>
+                <input type="text" disabled class="form-control" id="open-position" value="<?php echo htmlspecialchars($data['open_position']); ?>" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label for="job-description" class="form-label">کورتەیەک لەسەر کارەکە:</label>
+                <input type="text" disabled class="form-control" id="job-description" value="<?php echo htmlspecialchars($data['job_description']); ?>" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label for="gender" class="form-label">ڕەگەزی داواکراو:</label>
+                <input type="text" disabled   class="form-control" id="gender" value="<?php echo htmlspecialchars($data['gender']); ?>" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label for="location"  class="form-label">شوێنی کارکردن:</label>
+                <input type="text" disabled  class="form-control" id="location" value="<?php echo htmlspecialchars($data['location']); ?>" readonly>
+            </div>
+        </div>
+        <!-- End of Admin-Managed Section -->            
 
             <div class="container mt-4">
                 <div>   
@@ -171,27 +175,21 @@ $uploadStatus = isset($_GET['upload_status']) ? $_GET['upload_status'] : '';
             </div>
         </form>
     </div>
-
 </footer>
     <footer class="container mt-4 text-center" style="border-top: 1px solid #ddd; padding-top: 10px; direction: ltr;">
         <p>&copy; 2024 KCT. All rights reserved.</p>
         <p>
-        <a href="https://www.facebook.com/kct70" target="_blank">
-    <i class="bi bi-facebook" style="font-size: 1.5rem; margin: 0 10px;"></i>
-</a>
-<a href="https://www.instagram.com/kct.102/" target="_blank">
-    <i class="bi bi-instagram" style="font-size: 1.5rem; margin: 0 10px;"></i>
-</a>
-<a href="https://www.youtube.com/@KCT102" target="_blank">
-    <i class="bi bi-youtube" style="font-size: 1.5rem; margin: 0 10px;"></i>
-</a>
+            <a href="https://www.facebook.com/kct70" target="_blank">
+                <i class="bi bi-facebook" style="font-size: 1.5rem; margin: 0 10px;"></i>
+            </a>
+            <a href="https://www.instagram.com/kct.102/" target="_blank">
+                <i class="bi bi-instagram" style="font-size: 1.5rem; margin: 0 10px;"></i>
+            </a>
+            <a href="https://www.youtube.com/@KCT102" target="_blank">
+                <i class="bi bi-youtube" style="font-size: 1.5rem; margin: 0 10px;"></i>
+            </a>
         </p>
     </footer>
-
-
-
-
-
-    <script src="public/script.js"></script>
+    <script src="public/submit_handler.js"></script>
 </body>
 </html>
