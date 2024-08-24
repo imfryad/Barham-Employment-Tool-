@@ -1,5 +1,5 @@
 <?php
-require 'auth.php'; // require admin authentication
+require_once 'auth.php'; // require admin authentication
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +7,7 @@ require 'auth.php'; // require admin authentication
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
+    <title>پانێڵی ئەدمین</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
 </head>
 <body>
@@ -15,10 +15,10 @@ require 'auth.php'; // require admin authentication
         <!-- Navigation Menu -->
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" id="update-tab" data-bs-toggle="tab" href="#update">نوێکردنەوەی زانیاری</a>
+                <a class="nav-link active" id="update-tab" data-bs-toggle="tab" href="#update">نوێکردنەوەی زانیارییەکان</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="view-tab" data-bs-toggle="tab" href="#view">بەبینینی داوایەکان</a>
+                <a class="nav-link" id="view-tab" data-bs-toggle="tab" href="#view">بینینی داواکارییەکان</a>
             </li>
         </ul>
 

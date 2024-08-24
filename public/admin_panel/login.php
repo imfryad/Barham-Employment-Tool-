@@ -1,16 +1,19 @@
 <?php
-session_start(); // Start the session
+session_start([
+    'cookie_lifetime' => 86400,  // 1 day
+    'cookie_secure' => true,      // Only send cookies over HTTPS
+    'cookie_httponly' => true,    // Prevent JavaScript access to session cookies
+    'use_strict_mode' => true,    // Prevent session fixation
+    'use_only_cookies' => true,   // Use only cookies for sessions
+]);
 
-require '../../includes/db_connect.php'; // Connect to the database
+require_once '../../includes/db_connect.php'; // Connect to the database
 
 $error = ""; // Initialize error variable
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {  // Only process the form if it has been submitted
-    $username = $_POST['username'] ?? '';
+    $username = htmlspecialchars($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
-
-    // Debugging: see the submitted values
-    var_dump($username, $password);
 
     // Prepare and execute the SQL query to find the user by username
     $stmt = $pdo->prepare("SELECT * FROM admin_users WHERE username = ?");
@@ -18,15 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {  // Only process the form if it has
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     
-    // Debugging: see the fetched user data
-    var_dump($user);
-
     if ($user) {
         // Verify the password
         if (password_verify($password, $user['password_hash'])) {
             // Password is correct, set session variable and redirect to admin panel
             $_SESSION['admin_logged_in'] = true;
-            header('Location: admin_panel.php');
+            header('Location: king_panel.php');
             exit;
         } else {
             // Incorrect password
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {  // Only process the form if it has
         }
     } else {
         // User not found
-        $error = "بەکارهێنەر یان تێپەڕە وشە هەڵەیە";
+        $error = "بەکارهێنەر یان تێپەڕەوشە هەڵەیە";
     }
 }
 ?>
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {  // Only process the form if it has
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
+    <title>چوونەژوورەوە</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
