@@ -81,14 +81,16 @@ try {
                         <td><?= htmlspecialchars($row['location']) ?></td>
                         <td><?= htmlspecialchars($row['phone_number']) ?></td>
                         <td><?= htmlspecialchars($row['marital_status']) ?></td>
-                        <td><?= htmlspecialchars($row['birth_date']) ?></td>
+                        <td><?= htmlspecialchars(date('d/m/Y', strtotime($row['birth_date']))) ?></td>
                         <td><?= htmlspecialchars($row['experience']) ?></td>
                         <td><?= htmlspecialchars($row['languages']) ?></td>
                         <td><?= htmlspecialchars($row['education']) ?></td>
                         <td><?= htmlspecialchars($row['seen_our_works']) ?></td>
                         <td><?= htmlspecialchars($row['suggestions']) ?></td>
-                        <td><?= htmlspecialchars($row['cv_file_path']) ?></td>
-                        <td><?= htmlspecialchars($row['created_at']) ?></td>
+                        <td>
+                            <a href="preview_cv.php?file=<?= urlencode(basename($row['cv_file_path'])) ?>" target="_blank">سیڤی ببینە</a>
+                        </td>
+                        <td><?= htmlspecialchars(date('d/m/Y', strtotime($row['created_at']))) ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

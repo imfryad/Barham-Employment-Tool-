@@ -20,12 +20,16 @@ require_once 'auth.php'; // require admin authentication
             <li class="nav-item">
                 <a class="nav-link" id="view-tab" data-bs-toggle="tab" href="#view">بینینی داواکارییەکان</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" id="settings-tab" data-bs-toggle="tab" href="#settings">ڕێکخستنەکان</a>
+            </li>
         </ul>
 
         <!-- Tab Content -->
         <div class="tab-content mt-3">
             <?php require 'update_job_section.php'; ?>
             <?php require 'view_applicants_section.php'; ?>
+            <?php require 'settings_section.php'; ?>
         </div>
     </div>
     

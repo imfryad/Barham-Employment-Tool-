@@ -7,6 +7,7 @@ session_start([
     'use_only_cookies' => true,   // Use only cookies for sessions
 ]);
 
+
 require_once '../../includes/db_connect.php'; // Connect to the database
 
 $error = ""; // Initialize error variable

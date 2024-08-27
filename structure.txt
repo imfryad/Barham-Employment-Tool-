@@ -4,25 +4,27 @@ Barham_Class_Form/
 │   ├── Fonts/
 │   └── images/
 │
-├── includes/  (Move outside the web root)
+├── includes/  
 │   ├── db_connect.php
 │   ├── update_info.php
 │   └── upload.php
 │
-├── uploads/  (Move outside the web root)
+├── uploads/  
 │   └── (Uploaded files)
 │
-└── public/
+└── public/ (the root)
     ├── index.php
     ├── Job_opportunities.php
     ├── submit_handler.js
     ├── styles.css
     ├── success.php
     └── admin_panel/
-        ├── admin_panel.php
+        ├── king_panel.php
         ├── auth.php
         ├── fetch_applicants.php
         ├── login.php
+        ├── logout.php
         ├── update_job_section.php
         ├── view_applicants_section.php
+        ├── settings_section.php
         └── toggle_columns.js
