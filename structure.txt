@@ -28,3 +28,40 @@ Barham_Class_Form/
         ├── view_applicants_section.php
         ├── settings_section.php
         └── toggle_columns.js
+
+
+database
+barham_class
+├── admin_users
+│   ├── id
+│   ├── username
+│   ├── password_hash
+│   └── created_at
+│
+├── applicants
+│   ├── id
+│   ├── name
+│   ├── location
+│   ├── phone_number
+│   ├── marital_status
+│   ├── birth_date
+│   ├── experience
+│   ├── languages
+│   ├── education
+│   ├── cv_file_path
+│   ├── seen_our_works
+│   ├── suggestions
+│   └── created_at
+│
+├── job_info
+│   ├── id
+│   ├── open_position
+│   ├── job_description
+│   ├── gender
+│   └── location
+│
+└── uploaded_files
+    ├── id
+    ├── user_id
+    ├── file_path
+    └── uploaded_at

@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'NewRudawRegular';
+    src: url('../../assets/Fonts/new_rudaw_regular.ttf') format('truetype');
+}
+
+body {
+
+    background-color: #f4f7fa;
+    margin: 0;
+    font-family: 'NewRudawRegular', sans-serif;
+    direction: rtl; /* Right-to-left layout */
+}
+
+.navbar {
+    background-color: #fff; /* Navbar background to white */
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #000; /* Navbar brand color to black */
+}
+
+.navbar-nav .nav-link {
+    color: #000; /* Navbar text color to black */
+    font-size: 18px;
+    margin-left: 20px; /* Adjusted margin for RTL layout */
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #007bff;
+}
+
+.main-content {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.logout-btn {
+    color: #dc3545 !important; /* Standout color for logout */
+    border: 1px solid #dc3545;  /* Border for logout button */
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #dc3545;
+    color: #fff !important;
+}
+
